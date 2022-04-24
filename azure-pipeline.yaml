@@ -33,7 +33,6 @@ steps:
     actions: 'build'
     sdk: 'iphoneos'
     scheme: ${{ variables.SchemeName }}
-    xcodeVersion: 13
     xcWorkspacePath: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace'
     exportPath:  '$(Build.ArtifactStagingDirectory)'
     args: '-clonedSourcePackagesDirPath $(CachePath)'

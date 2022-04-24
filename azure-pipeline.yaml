@@ -7,8 +7,7 @@ trigger:
 - main
 pr: none
 
-pool:
-  vmImage: 'macos-latest'
+pool: SPMCacheBuildAgentPool
 
 variables:
 - name: AppName

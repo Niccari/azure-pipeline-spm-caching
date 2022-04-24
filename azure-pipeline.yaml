@@ -11,7 +11,6 @@ pool:
   vmImage: 'macos-latest'
 
 variables:
-- group: iOS_Development
 - name: AppName
   value: 'AzurePipelineSPMCaching'
 - name: SchemeName
@@ -19,16 +18,15 @@ variables:
 - name: CachePath
   value: 'SPMSourcePackages/'
 
-steps
+steps:
 - task: Cache@2
   inputs:
     key: '"spm" | "$(Agent.OS)" | Package.resolved'
-    restoreKeys: |
-    spm | "$(Agent.OS)"
     path: $(CachePath)
-    displayName: Cache SPM packages
+    restoreKeys: |
+      spm | "$(Agent.OS)"
+  displayName: Cache SPM packages
 
-steps:
 - task: Xcode@5
   inputs:
     actions: 'build'
@@ -38,4 +36,3 @@ steps:
     xcWorkspacePath: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace'
     exportPath:  '$(Build.ArtifactStagingDirectory)'
     args: '-clonedSourcePackagesDirPath $(CachePath)'
-

@@ -1,0 +1,41 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+trigger:
+- main
+pr: none
+
+pool:
+  vmImage: 'macos-latest'
+
+variables:
+- group: iOS_Development
+- name: AppName
+  value: 'AzurePipelineSPMCaching'
+- name: SchemeName
+  value: 'DevelopDebug'
+- name: CachePath
+  value: 'SPMSourcePackages/'
+
+steps
+- task: Cache@2
+  inputs:
+    key: '"spm" | "$(Agent.OS)" | Package.resolved'
+    restoreKeys: |
+    spm | "$(Agent.OS)"
+    path: $(CachePath)
+    displayName: Cache SPM packages
+
+steps:
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    sdk: 'iphoneos'
+    scheme: ${{ variables.SchemeName }}
+    xcodeVersion: 13
+    xcWorkspacePath: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace'
+    exportPath:  '$(Build.ArtifactStagingDirectory)'
+    args: '-clonedSourcePackagesDirPath $(CachePath)'
+

@@ -14,14 +14,16 @@ variables:
   value: 'AzurePipelineSPMCaching'
 - name: SchemeName
   value: 'DevelopDebug'
+- name: SPMResolvedPath
+  value: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved'
 - name: CachePath
   value: 'SPMSourcePackages/'
 
 steps:
 - task: Cache@2
   inputs:
-    key: '"spm" | "$(Agent.OS)" | Package.resolved'
-    path: $(CachePath)
+    key: '"spm" | "$(Agent.OS)" | $(SPMResolvedPath)'
+    path: '$(CachePath)'
     restoreKeys: |
       spm | "$(Agent.OS)"
   displayName: Cache SPM packages

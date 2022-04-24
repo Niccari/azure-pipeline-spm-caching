@@ -1,0 +1,9 @@
+xcframeworks/Firebase/FirebaseFirestore.xcframework/ios-arm64_i386_x86_64-simulator/FirebaseFirestore.framework/FirebaseFirestore filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/FirebaseFirestore.xcframework/ios-arm64_armv7/FirebaseFirestore.framework/FirebaseFirestore filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/gRPC-Core.xcframework/ios-arm64_i386_x86_64-simulator/gRPC-Core.framework/gRPC-Core filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/gRPC-Core.xcframework/ios-arm64_armv7/gRPC-Core.framework/gRPC-Core filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/gRPC-C++.xcframework/ios-arm64_armv7/gRPC-C++.framework/gRPC-C++ filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/BoringSSL-GRPC.xcframework/ios-arm64_armv7/BoringSSL-GRPC.framework/BoringSSL-GRPC filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/FirebaseAuth.xcframework/ios-arm64_armv7/FirebaseAuth.framework/FirebaseAuth filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/GoogleAppMeasurement.xcframework/ios-arm64_i386_x86_64-simulator/GoogleAppMeasurement.framework/GoogleAppMeasurement filter=lfs diff=lfs merge=lfs -text
+xcframeworks/Firebase/GoogleAppMeasurement.xcframework/ios-arm64_armv7/GoogleAppMeasurement.framework/GoogleAppMeasurement filter=lfs diff=lfs merge=lfs -text

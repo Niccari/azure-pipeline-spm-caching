@@ -16,6 +16,8 @@ variables:
   value: 'DevelopDebug'
 - name: SPMResolvedPath
   value: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved'
+- name: ConfigurationName
+  value: 'Debug'
 
 steps:
 - task: Xcode@5
@@ -23,5 +25,6 @@ steps:
     actions: 'build'
     sdk: 'iphoneos'
     scheme: ${{ variables.SchemeName }}
+    configuration: ${{ variables.ConfigurationName }}
     xcWorkspacePath: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace'
     exportPath:  '$(Build.ArtifactStagingDirectory)'

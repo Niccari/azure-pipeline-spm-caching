@@ -16,18 +16,8 @@ variables:
   value: 'DevelopDebug'
 - name: SPMResolvedPath
   value: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved'
-- name: CachePath
-  value: 'SPMSourcePackages/'
 
 steps:
-- task: Cache@2
-  inputs:
-    key: '"spm" | "$(Agent.OS)" | $(SPMResolvedPath)'
-    path: '$(CachePath)'
-    restoreKeys: |
-      spm | "$(Agent.OS)"
-  displayName: Cache SPM packages
-
 - task: Xcode@5
   inputs:
     actions: 'build'
@@ -35,4 +25,3 @@ steps:
     scheme: ${{ variables.SchemeName }}
     xcWorkspacePath: 'AzurePipelineSPMCaching.xcodeproj/project.xcworkspace'
     exportPath:  '$(Build.ArtifactStagingDirectory)'
-    args: '-clonedSourcePackagesDirPath $(CachePath)'
